@@ -1,0 +1,7 @@
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://sm1-tee.github.io/sitemap.xml
+Sitemap: https://sm1-tee.github.io/sitemap.txt
