@@ -895,9 +895,8 @@
     </div>
 
     <script is:inline>
-      var REPO = 'Sm1-Tee/sm1-tee.github.io';
-      var RELEASE_REPO = 'Sm1-Tee/chit-ai'; // файлы .epub лежат в релизах старого репозитория
-      var BRANCH = 'main';
+      var REPO = 'Sm1-Tee/chit-ai';
+      var BRANCH = 'master';
       var API = 'https://api.github.com';
       var RAW_BASE = 'https://raw.githubusercontent.com/' + REPO + '/' + BRANCH;
 
@@ -1051,7 +1050,7 @@
       }
 
       function fetchDownloadStats() {
-        return ghFetch('/repos/' + RELEASE_REPO + '/releases')
+        return ghFetch('/repos/' + REPO + '/releases')
           .then(function(releases) {
             var total = 0;
             releases.forEach(function(rel) {
@@ -1626,7 +1625,7 @@
         })
           .then(function () {
             setProgress(100, '');
-            showOverlayResult('Книга опубликована!', 'Все пакеты успешно загружены.', 'https://sm1-tee.github.io/books/' + slug + '/');
+            showOverlayResult('Книга опубликована!', 'Все пакеты успешно загружены.', 'https://sm1-tee.github.io/chit-ai/books/' + slug + '/');
             showView('list');
             setTimeout(function() {
               try { loadBooks(); } catch(e) { console.error("loadBooks error:", e); }
@@ -1730,7 +1729,7 @@
           })
           .then(function () {
             setProgress(100, '');
-            showOverlayResult('Изменения сохранены!', 'Все пакеты успешно обновлены.', 'https://sm1-tee.github.io/books/' + newSlug + '/');
+            showOverlayResult('Изменения сохранены!', 'Все пакеты успешно обновлены.', 'https://sm1-tee.github.io/chit-ai/books/' + newSlug + '/');
             showView('list');
             setTimeout(function() {
               try { loadBooks(); } catch(e) { console.error("loadBooks error:", e); }

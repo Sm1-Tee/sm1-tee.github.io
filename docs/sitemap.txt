@@ -4,6 +4,7 @@ https://sm1-tee.github.io/books/amerikanskie-bogi/
 https://sm1-tee.github.io/books/artas-voskhozhdenie-korolya-licha/
 https://sm1-tee.github.io/books/bratstvo-koltsa/
 https://sm1-tee.github.io/books/chernyy-chelovek/
+https://sm1-tee.github.io/books/chernyy-otryad/
 https://sm1-tee.github.io/books/drakula/
 https://sm1-tee.github.io/books/dve-kreposti/
 https://sm1-tee.github.io/books/dyuna/
@@ -15,9 +16,12 @@ https://sm1-tee.github.io/books/korolevskiy-ubiytsa/
 https://sm1-tee.github.io/books/krov-i-zhelezo/
 https://sm1-tee.github.io/books/master-i-margarita/
 https://sm1-tee.github.io/books/metro-2033/
+https://sm1-tee.github.io/books/mirgorod/
 https://sm1-tee.github.io/books/mor-uchenik-smerti/
 https://sm1-tee.github.io/books/nastoyashchie-skazki-bratev-grimm/
+https://sm1-tee.github.io/books/ostrov-proklyatykh/
 https://sm1-tee.github.io/books/piknik-na-obochine/
+https://sm1-tee.github.io/books/pobeg-iz-shoushenka/
 https://sm1-tee.github.io/books/portret-doriana-greya/
 https://sm1-tee.github.io/books/posledniy-dovod-koroley/
 https://sm1-tee.github.io/books/prezhde-chem-ikh-povesyat/
@@ -25,6 +29,8 @@ https://sm1-tee.github.io/books/rytsar-semi-korolevstv/
 https://sm1-tee.github.io/books/strakhi-mudretsa-tom-1/
 https://sm1-tee.github.io/books/strakhi-mudretsa-tom-2/
 https://sm1-tee.github.io/books/strannaya-istoriya-doktora-dzhekila-i-mistera-khayda/
+https://sm1-tee.github.io/books/trudno-byt-bogom/
 https://sm1-tee.github.io/books/tsvet-volshebstva/
 https://sm1-tee.github.io/books/uchenik-ubiytsy/
 https://sm1-tee.github.io/books/ukrytie/
+https://sm1-tee.github.io/books/vechera-na-khutore-bliz-dikanki/
