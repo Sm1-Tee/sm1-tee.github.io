@@ -1,0 +1,68 @@
+name: Sync site from chit-ai
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+  repository_dispatch:
+    types: [sync-site]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-site
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout root site repo
+        uses: actions/checkout@v4
+
+      - name: Checkout upstream content (chit-ai)
+        uses: actions/checkout@v4
+        with:
+          repository: Sm1-Tee/chit-ai
+          ref: master
+          path: upstream
+
+      - name: Copy source from upstream
+        run: |
+          rm -rf src public package.json package-lock.json
+          cp -r upstream/src src
+          cp -r upstream/public public
+          cp upstream/package.json package.json
+          cp upstream/package-lock.json package-lock.json
+          rm -rf upstream
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install deps
+        run: npm ci || npm install
+
+      - name: Build site at domain root
+        run: npm run build
+
+      - name: Publish build into docs/
+        run: |
+          rm -rf docs
+          mv dist docs
+          touch docs/.nojekyll
+          cp yandex_52e6f0c8043ee02d.html docs/ || true
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --quiet --cached; then
+            echo 'Nothing to sync.'
+          else
+            git commit -m 'chore: sync site content from chit-ai'
+            git push
+          fi
