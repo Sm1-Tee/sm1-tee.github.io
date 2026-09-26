@@ -28,6 +28,10 @@ const seriesCountText = seriesBooks.length === 1
   : (seriesBooks.length === 2 || seriesBooks.length === 3 || seriesBooks.length === 4)
     ? 'книги'
     : 'книг';
+
+const genres = book.data.genre
+  ? book.data.genre.split(',').map((g: string) => g.trim()).filter(Boolean)
+  : [];
 ---
 
 <Layout 
@@ -39,8 +43,8 @@ const seriesCountText = seriesBooks.length === 1
     ← Назад к каталогу
   </a>
 
-  <article class="reveal-print mx-auto w-full max-w-[1800px]">
-    <div class="grid items-start gap-8 xl:grid-cols-[minmax(280px,360px)_minmax(0,920px)_minmax(360px,420px)]">
+  <article class="reveal-print mx-auto w-full max-w-[2140px]">
+    <div class="grid items-start gap-8 xl:grid-cols-[minmax(320px,400px)_minmax(0,920px)_minmax(500px,580px)] 2xl:grid-cols-[minmax(340px,420px)_minmax(0,920px)_minmax(540px,600px)]">
       <section class="flex min-w-0 flex-col">
         <button
           type="button"
@@ -69,9 +73,18 @@ const seriesCountText = seriesBooks.length === 1
           <h1 class="mt-3 text-2xl font-bold leading-tight tracking-tight text-ink sm:text-3xl">
             {book.data.title}
           </h1>
-          <p class="type-ui mt-4 text-xs font-black uppercase tracking-[0.22em] text-muted">
+          <p class="type-ui mt-3.5 text-sm sm:text-[15px] font-bold uppercase tracking-[0.2em] text-accent">
             {book.data.author}
           </p>
+          {genres.length > 0 && (
+            <div class="mt-4 flex flex-wrap items-center justify-center gap-2 border-t border-accent/20 pt-4">
+              {genres.map((g: string) => (
+                <span class="type-ui rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-accent shadow-sm backdrop-blur-sm transition-colors">
+                  {g}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -84,10 +97,6 @@ const seriesCountText = seriesBooks.length === 1
             <Content />
           </div>
 
-          <p class="mt-8 text-center text-lg font-semibold italic text-accent underline decoration-accent/40 underline-offset-4 sm:text-xl">
-            Данное издание содержит уникальные иллюстрации сюжета.
-          </p>
-
           <h2 class="type-ui mt-10 mb-6 text-center text-base font-black uppercase tracking-[0.24em] text-accent">Рекомендации по скачиванию</h2>
 
           <div class="space-y-3 text-lg leading-relaxed sm:text-xl">
@@ -96,7 +105,7 @@ const seriesCountText = seriesBooks.length === 1
           </div>
 
           <div class="mt-10 border-t border-accent/35 pt-8">
-            <h2 class="type-ui mb-6 text-center text-base font-black uppercase tracking-[0.24em] text-accent">Скачать издание</h2>
+            <h2 class="type-ui mb-6 text-center text-base font-black uppercase tracking-[0.24em] text-accent">Читать и скачать</h2>
             <DownloadButtons colorEpub={book.data.colorEpub} bwEpub={book.data.bwEpub} />
           </div>
         </div>

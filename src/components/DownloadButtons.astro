@@ -1,4 +1,6 @@
 ---
+import RuStoreIcon from './icons/RuStoreIcon.astro';
+
 interface Props {
   colorEpub: string;
   bwEpub: string;
@@ -8,38 +10,98 @@ const { colorEpub, bwEpub } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<div class="grid gap-4 sm:grid-cols-2">
+<div class="space-y-4">
   <a
-    href={colorEpub.startsWith('http') ? colorEpub : `${baseUrl}${colorEpub}`}
-    data-donate-modal-trigger
+    href="https://www.rustore.ru/catalog/app/com.scroll.reader"
     target="_blank"
     rel="noopener noreferrer"
-    class="type-ui group relative block overflow-hidden rounded-xl border border-accent/55 bg-gradient-to-br from-accent via-[#d2a85b] to-[#6f461b] px-5 py-4 text-paper shadow-[0_18px_45px_rgba(176,138,69,0.34)] ring-1 ring-white/15 transition-all hover:-translate-y-1 hover:border-accent/80 hover:shadow-[0_24px_70px_rgba(228,213,183,0.36)]"
+    class="type-ui group relative block overflow-hidden rounded-xl border border-[#0077FF]/35 bg-gradient-to-br from-[#0077FF]/[0.15] via-[#081226]/90 to-black/85 p-4 sm:p-4.5 shadow-[0_16px_40px_rgba(0,119,255,0.16)] ring-1 ring-white/10 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0077FF]/70 hover:shadow-[0_20px_50px_rgba(0,119,255,0.28)]"
   >
-    <div class="absolute inset-0 bg-white/20 opacity-0 transition-opacity group-hover:opacity-100"></div>
-    <div class="relative flex items-center justify-between gap-4 transition-transform duration-300 group-hover:-translate-y-0.5">
-      <div>
-        <span class="block text-[0.68rem] font-black uppercase tracking-[0.24em] opacity-80">EPUB</span>
-        <span class="mt-1 block text-sm font-black uppercase tracking-[0.18em]">Цветная версия</span>
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(0,119,255,0.22),transparent_65%)]" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0077FF]/10 via-transparent to-[#0077FF]/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true"></div>
+    <div class="relative flex items-center justify-between gap-3 sm:gap-4">
+      <div class="flex items-center gap-3 sm:gap-3.5 min-w-0">
+        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#0077FF] text-white shadow-lg shadow-[#0077FF]/40 transition-transform duration-300 group-hover:scale-105">
+          <RuStoreIcon class="h-6 w-6 text-white" />
+        </div>
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+            <span class="rounded-full border border-blue-400/40 bg-blue-500/20 px-2 py-0.5 text-[10px] font-bold text-blue-200">Рекомендуем</span>
+            <span class="text-[0.65rem] sm:text-[0.68rem] font-black uppercase tracking-[0.2em] text-blue-300">Android • RuStore</span>
+            <span class="rounded-full border border-blue-400/30 bg-blue-500/15 px-1.5 py-0.2 text-[9px] font-bold text-blue-200">Бесплатно</span>
+          </div>
+          <div class="mt-1 text-sm sm:text-base font-black tracking-normal sm:tracking-wide text-white group-hover:text-blue-100 transition-colors leading-snug break-words">
+            Читать в лучшем приложении «Свиток»
+          </div>
+          <p class="mt-0.5 text-[11px] sm:text-xs text-white/70 leading-normal break-words">
+            Удобное чтение скачанных книг офлайн без рекламы
+          </p>
+        </div>
       </div>
-      <span class="flex h-10 w-10 items-center justify-center rounded-full bg-paper/95 text-xl text-ink shadow-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" aria-hidden="true">↓</span>
+      <div class="shrink-0 flex items-center gap-1.5 rounded-full border border-blue-400/50 bg-[#0077FF]/20 px-3 py-1.5 text-xs font-bold text-blue-100 shadow-[0_0_15px_rgba(0,119,255,0.2)] transition-all duration-300 group-hover:border-[#0077FF] group-hover:bg-[#0077FF] group-hover:text-white">
+        <span class="hidden sm:inline">В RuStore</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </div>
     </div>
   </a>
 
-  <a
-    href={bwEpub.startsWith('http') ? bwEpub : `${baseUrl}${bwEpub}`}
-    data-donate-modal-trigger
-    target="_blank"
-    rel="noopener noreferrer"
-    class="type-ui group relative block overflow-hidden rounded-xl border border-slate-400/40 bg-gradient-to-br from-slate-600 via-slate-700 to-slate-900 px-5 py-4 text-white shadow-[0_18px_45px_rgba(15,23,42,0.34)] ring-1 ring-white/10 transition-all hover:-translate-y-1 hover:border-slate-400/60 hover:shadow-[0_24px_70px_rgba(15,23,42,0.42)]"
-  >
-    <div class="absolute inset-0 bg-white/10 opacity-0 transition-opacity group-hover:opacity-100"></div>
-    <div class="relative flex items-center justify-between gap-4 transition-transform duration-300 group-hover:-translate-y-0.5">
-      <div>
-        <span class="block text-[0.68rem] font-black uppercase tracking-[0.24em] text-slate-300/80">EPUB</span>
-        <span class="mt-1 block text-sm font-black uppercase tracking-[0.18em]">Ч/Б версия</span>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <a
+      href={colorEpub.startsWith('http') ? colorEpub : `${baseUrl}${colorEpub}`}
+      data-donate-modal-trigger
+      target="_blank"
+      rel="noopener noreferrer"
+      class="type-ui group relative block overflow-hidden rounded-2xl border border-accent/30 bg-gradient-to-br from-white/[0.07] via-paper-alt/85 to-black/70 p-4 sm:p-5 shadow-[0_16px_40px_rgba(0,0,0,0.45)] ring-1 ring-white/10 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_22px_55px_rgba(228,213,183,0.22)]"
+    >
+      <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(228,213,183,0.22),transparent_65%)]" aria-hidden="true"></div>
+      <div class="relative flex items-center justify-between gap-3.5 sm:gap-4">
+        <div class="min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center rounded-md border border-accent/40 bg-accent/15 px-2 py-0.5 text-[10px] font-black uppercase tracking-[0.18em] text-accent">EPUB</span>
+          </div>
+          <div class="mt-1.5 text-base sm:text-lg font-black tracking-wide text-accent leading-snug">
+            Цветная версия
+          </div>
+          <p class="mt-1 text-xs sm:text-[13px] text-white/70 leading-normal break-words">
+            Для смартфонов, планшетов и ПК
+          </p>
+        </div>
+        <div class="shrink-0 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-xl border border-accent/40 bg-accent/15 text-accent shadow-md backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:border-accent group-hover:bg-accent group-hover:text-paper">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3" />
+          </svg>
+        </div>
       </div>
-      <span class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-xl text-slate-900 shadow-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" aria-hidden="true">↓</span>
-    </div>
-  </a>
+    </a>
+
+    <a
+      href={bwEpub.startsWith('http') ? bwEpub : `${baseUrl}${bwEpub}`}
+      data-donate-modal-trigger
+      target="_blank"
+      rel="noopener noreferrer"
+      class="type-ui group relative block overflow-hidden rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-900/90 via-black to-zinc-950 p-4 sm:p-5 shadow-[0_16px_40px_rgba(0,0,0,0.45)] ring-1 ring-white/5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-zinc-500 hover:shadow-[0_22px_55px_rgba(255,255,255,0.08)]"
+    >
+      <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.08),transparent_65%)]" aria-hidden="true"></div>
+      <div class="relative flex items-center justify-between gap-3.5 sm:gap-4">
+        <div class="min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center rounded-md border border-zinc-700 bg-zinc-800/80 px-2 py-0.5 text-[10px] font-black uppercase tracking-[0.18em] text-zinc-300">EPUB</span>
+          </div>
+          <div class="mt-1.5 text-base sm:text-lg font-black tracking-wide text-zinc-100 group-hover:text-white transition-colors leading-snug">
+            Чёрно-белая версия
+          </div>
+          <p class="mt-1 text-xs sm:text-[13px] text-zinc-400 leading-normal break-words">
+            Для E-Ink ридеров (Kindle, PocketBook)
+          </p>
+        </div>
+        <div class="shrink-0 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-800/80 text-zinc-300 shadow-md backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:border-zinc-300 group-hover:bg-zinc-200 group-hover:text-zinc-950">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3" />
+          </svg>
+        </div>
+      </div>
+    </a>
+  </div>
 </div>
